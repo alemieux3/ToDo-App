@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #e6ede5;
+  --color-moss: #7cc49a;
+  --color-leaf: #9fdcb6;
+  --color-cream: #0f1612;
+  --color-paper: #17211b;
+  --color-rule: #2b3a31;
+  --color-muted: #8e9a91;
+  --color-high: #fb7c55;
+  --color-medium: #f2a84a;
+  --color-low: #a3d160;
+}
+
+html {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1d3226 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #16261f 0%, transparent 50%),
+    var(--color-cream);
+  font-family: var(--font-sans);
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(to right, rgb(124 196 154 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(124 196 154 / 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+#root {
+  isolation: isolate;
+}
+
+.checkbox-tick {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 18;
+}
+
+input:checked + span .checkbox-tick {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 180ms ease-out;
+}
